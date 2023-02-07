@@ -4,6 +4,7 @@ import Header from "./components/Header/Header"
 import Nav from "./components/Nav/Nav"
 import Articles from "./components/Articles/Articles"
 import { useState } from 'react';
+import SingleArticle from './components/SingleArticle/SingleArticle';
 
 function App() {
 
@@ -15,6 +16,7 @@ function App() {
       <Nav />
       <Routes>
         <Route path='/' element={<Articles topic={topic} />}></Route>
+        <Route path='/article/:article_id' element={<SingleArticle />}></Route>
       </Routes>
     </div>
   );

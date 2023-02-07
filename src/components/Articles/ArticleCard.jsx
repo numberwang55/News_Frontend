@@ -1,5 +1,6 @@
 import { useState } from "react"
 import Votes from "./Votes"
+import { Link } from "react-router-dom"
 
 export default function ArticleCard({ article }) {
 
@@ -7,7 +8,7 @@ export default function ArticleCard({ article }) {
 
     return (
         <article className="articles-container-card">
-            <h2>{article.title}</h2>
+            <h2><Link to={`/article/${article.article_id}`}>{article.title}</Link></h2>
             <div className="topic-author-votes">
                 <div className="topic-author">
                     <p>Topic: {article.topic}</p>
