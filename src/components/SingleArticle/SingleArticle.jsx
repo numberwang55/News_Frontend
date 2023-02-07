@@ -15,7 +15,6 @@ export default function SingleArticle({votes}) {
     useEffect(() => {
         getArticleById(article_id)
             .then((articleFromApi) => {
-                console.log(articleFromApi)
                 setSingleArticle(articleFromApi)
                 setLoading(false)
             })
@@ -47,7 +46,7 @@ export default function SingleArticle({votes}) {
                     <p>Comments: {comment_count}</p>
                 </article>
             </section>
-            <Comments />
+            <Comments article_id={article_id}/>
         </div>
     )
 }
