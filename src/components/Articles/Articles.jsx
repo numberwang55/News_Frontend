@@ -29,7 +29,7 @@ export default function Articles({ topic, votes }) {
                 <button>Select</button>
             </section>
             {articles.map(article => {
-                return <ArticleCard article={article} votes={votes} key={article.article_id} ></ArticleCard>
+                return <ArticleCard {...article} votes={votes} key={article.article_id} ></ArticleCard>
             })}
         </main>
     )

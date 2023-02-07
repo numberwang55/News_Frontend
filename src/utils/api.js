@@ -14,6 +14,6 @@ export const getArticles = (sort_by = "created_at", order = "desc", topic = fals
 export const getArticleById = (article_id) => {
     return newsApi.get(`/articles/${article_id}`)
         .then(({ data: { article } }) => {
-            return article
+            return {...article}
         })
 }
