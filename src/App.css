@@ -21,7 +21,15 @@ header h1 {
 
 h2 {
   text-align: center;
-  padding-top: 0.5rem;
+}
+
+.articles-container-card-title {
+  text-align: center;
+  padding: 0.5rem;
+}
+
+.articles-container-card-title:hover {
+  background-color: gold;
 }
 
 nav {
@@ -67,7 +75,7 @@ nav {
   padding: 0.2rem;
 }
 
-.topic-author-votes {
+.articles-container-topic-author-votes {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -75,10 +83,6 @@ nav {
   margin-top: 0.5rem;
 }
 
-.topic-author {
-  display: flex;
-  flex-direction: column;
-  align-items: start;
-  text-align: left;
-  justify-content: space-evenly;
+.articles-container-card-link {
+  text-decoration: none;
 }

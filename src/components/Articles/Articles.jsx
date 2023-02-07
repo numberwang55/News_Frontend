@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react"
 import { getArticles } from "../../utils/api"
 import ArticleCard from "./ArticleCard"
+import Loading from "../Loading"
 
-
-export default function Articles({ topic }) {
+export default function Articles({ topic, votes }) {
 
     const [articles, setArticles] = useState([])
     const [loading, setLoading] = useState(true)
@@ -16,10 +16,10 @@ export default function Articles({ topic }) {
                 setArticles(articles)
                 setLoading(false)
             })
-    }, [])
+    }, [articles])
 
     if (loading) {
-        return <img src="https://media3.giphy.com/media/cge9nG7e7wKWbMm9cY/giphy.gif?cid=ecf05e47u0z47v7u5l0ws5fyh44frce6unogttvosjw8l80z&rid=giphy.gif&ct=g" alt="Loading" />
+        return <Loading/>
     }
 
     return (
@@ -29,7 +29,7 @@ export default function Articles({ topic }) {
                 <button>Select</button>
             </section>
             {articles.map(article => {
-                return <ArticleCard article={article} key={article.article_id} ></ArticleCard>
+                return <ArticleCard {...article} votes={votes} key={article.article_id} ></ArticleCard>
             })}
         </main>
     )
