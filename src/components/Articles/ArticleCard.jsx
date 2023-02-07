@@ -1,20 +1,28 @@
 import { useState } from "react"
 import Votes from "./Votes"
 
-export default function ArticleCard() {
+export default function ArticleCard({ article }) {
 
     const [votes, setVotes] = useState(0)
 
     return (
-        <div className="article-card">
-            <h3>Article Card</h3>
-            <p>Topic</p>
-            <p>Author</p>
-            <Votes></Votes>
-            <p>Image</p>
-            <p>Body</p>
-            <p>Date</p>
-            <p>Comments Count</p>
-        </div>
+        <article className="articles-container-card">
+            <h2>{article.title}</h2>
+            <div className="topic-author-votes">
+                <div className="topic-author">
+                    <p>Topic: {article.topic}</p>
+                    <p>Author: {article.author}</p>
+                </div>
+                <Votes votes={votes} />
+            </div>
+            <img
+                src={article.article_img_url}
+                alt={article.title}
+                className="articles-container-card-image"
+            />
+            <p>{article.body}</p>
+            <p>{article.created_at}</p>
+            <p>Comments: {article.comment_count}</p>
+        </article>
     )
 }
