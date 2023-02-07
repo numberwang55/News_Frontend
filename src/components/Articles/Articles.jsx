@@ -3,7 +3,7 @@ import { getArticles } from "../../utils/api"
 import ArticleCard from "./ArticleCard"
 import Loading from "../Loading"
 
-export default function Articles({ topic, votes }) {
+export default function Articles({ topic, vote, setVote }) {
 
     const [articles, setArticles] = useState([])
     const [loading, setLoading] = useState(true)
@@ -16,7 +16,7 @@ export default function Articles({ topic, votes }) {
                 setArticles(articles)
                 setLoading(false)
             })
-    }, [articles])
+    }, [topic])
 
     if (loading) {
         return <Loading/>
@@ -29,7 +29,7 @@ export default function Articles({ topic, votes }) {
                 <button>Select</button>
             </section>
             {articles.map(article => {
-                return <ArticleCard {...article} votes={votes} key={article.article_id} ></ArticleCard>
+                return <ArticleCard {...article} vote={vote} setVote={setVote} key={article.article_id} ></ArticleCard>
             })}
         </main>
     )

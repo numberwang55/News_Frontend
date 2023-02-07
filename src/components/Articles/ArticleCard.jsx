@@ -1,7 +1,7 @@
 import Votes from "./Votes"
 import { Link } from "react-router-dom"
 
-export default function ArticleCard({ article_id, title, topic,author, article_img_url, body, created_at, comment_count,votes }) {
+export default function ArticleCard({ article_id, title, topic, author, article_img_url, body, created_at, comment_count, votes, vote, setVote }) {
 
     return (
         <article className="articles-container-card">
@@ -11,7 +11,7 @@ export default function ArticleCard({ article_id, title, topic,author, article_i
                     <p>Topic: {topic}</p>
                     <p>Author: {author}</p>
                 </div>
-                <Votes votes={votes} />
+                <Votes vote={vote} setVote={setVote} article_id={article_id} votes={votes}/>
             </div>
             <img
                 src={article_img_url}

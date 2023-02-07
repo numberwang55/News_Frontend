@@ -1,6 +1,7 @@
+import { patchVote } from "../../utils/api"
 
+export default function Votes({ vote, setVote, article_id, votes }) {
 
-export default function Votes({ votes }) {
     return (
         <div className="votes">
             <p>Votes: {votes}</p>

@@ -5,13 +5,13 @@ import { getArticleById } from "../../utils/api"
 import Loading from "../Loading"
 import Comments from "./Comments"
 
-export default function SingleArticle({votes}) {
+export default function SingleArticle({ vote, setVote }) {
 
     const [singleArticle, setSingleArticle] = useState({})
     const [loading, setLoading] = useState(true)
     const { article_id } = useParams()
-    const {title, topic,author, article_img_url, body, created_at, comment_count} = singleArticle
-    
+    const { title, topic, author, article_img_url, body, created_at, comment_count, votes } = singleArticle
+
     useEffect(() => {
         getArticleById(article_id)
             .then((articleFromApi) => {
@@ -34,7 +34,7 @@ export default function SingleArticle({votes}) {
                             <p>Topic: {topic}</p>
                             <p>Author: {author}</p>
                         </div>
-                        <Votes votes={votes} />
+                        <Votes vote={vote} setVote={setVote} article_id={article_id} votes={votes}/>
                     </div>
                     <img
                         src={article_img_url}
@@ -46,7 +46,7 @@ export default function SingleArticle({votes}) {
                     <p>Comments: {comment_count}</p>
                 </article>
             </section>
-            <Comments article_id={article_id}/>
+            <Comments article_id={article_id} />
         </div>
     )
 }

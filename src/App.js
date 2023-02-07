@@ -9,15 +9,15 @@ import SingleArticle from './components/SingleArticle/SingleArticle';
 function App() {
 
   const [topic, setTopic] = useState(false)
-  const [votes, setVotes] = useState(0)
+  const [vote, setVote] = useState(0)
 
   return (
     <div className="App">
       <Header />
       <Nav />
       <Routes>
-        <Route path='/' element={<Articles topic={topic} votes={votes} />}></Route>
-        <Route path='/article/:article_id' element={<SingleArticle votes={votes} />}></Route>
+        <Route path='/' element={<Articles topic={topic} vote={vote} setVote={setVote} />}></Route>
+        <Route path='/article/:article_id' element={<SingleArticle vote={vote} setVote={setVote} />}></Route>
       </Routes>
     </div>
   );
