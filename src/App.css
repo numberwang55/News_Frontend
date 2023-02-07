@@ -91,7 +91,7 @@ nav {
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
-  margin: 0 auto;
+  margin: 0 auto 1rem auto;
   align-items: center;
   text-align: center;
   width: 70%;
