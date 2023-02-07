@@ -2,15 +2,13 @@ import { useState } from "react"
 import Votes from "./Votes"
 import { Link } from "react-router-dom"
 
-export default function ArticleCard({ article }) {
-
-    const [votes, setVotes] = useState(0)
+export default function ArticleCard({ article, votes }) {
 
     return (
         <article className="articles-container-card">
-            <h2><Link to={`/article/${article.article_id}`}>{article.title}</Link></h2>
-            <div className="topic-author-votes">
-                <div className="topic-author">
+            <h2 className="articles-container-card-title"><Link className="articles-container-card-link" to={`/article/${article.article_id}`}>{article.title}</Link></h2>
+            <div className="articles-container-topic-author-votes">
+                <div className="articles-container-topic-author">
                     <p>Topic: {article.topic}</p>
                     <p>Author: {article.author}</p>
                 </div>

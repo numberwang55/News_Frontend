@@ -1,26 +1,52 @@
 import { useParams } from "react-router"
 import { useEffect, useState } from "react"
-import ArticleCard from "../Articles/ArticleCard"
+import Votes from "../Articles/Votes"
 import { getArticleById } from "../../utils/api"
 import Loading from "../Loading"
+import Comments from "./Comments"
 
-export default function SingleArticle() {
+export default function SingleArticle({votes}) {
 
-    const [singleArticle, setSingleArticle, loading, setLoading] = useState({}, true)
+    const [singleArticle, setSingleArticle] = useState({})
+    const [loading, setLoading] = useState(true)
     const { article_id } = useParams()
-    console.log(article_id)
 
     useEffect(() => {
-        getArticleById()
-    })
+        getArticleById(article_id)
+            .then((articleFromApi) => {
+                console.log(articleFromApi)
+                setSingleArticle(articleFromApi)
+                setLoading(false)
+            })
+    }, [article_id])
 
     if (loading) {
-        return <Loading/>
+        return <Loading />
     }
 
     return (
-        <div className="single-article">
-            <p>Single Article</p>
+        <div className="single-article-container">
+            <section className="articles-container">
+                <article className="articles-container-card">
+                    <h2>{singleArticle.title}</h2>
+                    <div className="articles-container-topic-author-votes">
+                        <div className="articles-container-topic-author">
+                            <p>Topic: {singleArticle.topic}</p>
+                            <p>Author: {singleArticle.author}</p>
+                        </div>
+                        <Votes votes={votes} />
+                    </div>
+                    <img
+                        src={singleArticle.article_img_url}
+                        alt={singleArticle.title}
+                        className="articles-container-card-image"
+                    />
+                    <p>{singleArticle.body}</p>
+                    <p>{singleArticle.created_at}</p>
+                    <p>Comments: {singleArticle.comment_count}</p>
+                </article>
+            </section>
+            <Comments />
         </div>
     )
 }
