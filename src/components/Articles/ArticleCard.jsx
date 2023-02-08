@@ -1,4 +1,4 @@
-import Votes from "./Votes"
+import Votes from "../SingleArticle/Votes"
 import { Link } from "react-router-dom"
 import { dateFormatter } from "../../utils/dateFormatter"
 
@@ -14,8 +14,7 @@ export default function ArticleCard({ article_id, title, topic, author, article_
                     <p>Topic: {topic}</p>
                     <p>Author: {author}</p>
                 </div>
-                <Votes vote={vote} setVote={setVote} article_id={article_id} votes={votes}/>
-                
+                <p>Votes: {votes}</p>
             </div>
             <img
                 src={article_img_url}
