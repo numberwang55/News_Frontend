@@ -9,7 +9,7 @@ export default function Header() {
 
     return (
         <header>
-            {user !== "" ? <p>User selected: {user}</p> : <p>Please select user</p>}
+            {user !== "" ? <p>User: {user}</p> : <p>Please select user</p>}
             <h1>NC News</h1>
             {/* <div> */}
                 <Link to="/users"><p>Users</p></Link>
