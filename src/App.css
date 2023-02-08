@@ -81,7 +81,14 @@ h2 {
 
 .articles-container-card-title {
   text-align: center;
-  padding: 0.5rem;
+  margin-left: 0.3rem;
+  margin-top: 0.2rem;
+  margin-right: 0.3rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .articles-container-card-title:hover {
