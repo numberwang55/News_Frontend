@@ -11,7 +11,7 @@
 body {
   background-color: floralwhite;
   margin-top: 1rem;
-  font-size: 16px;
+  font-size: 13px;
 }
 
 header h1 {
@@ -40,7 +40,7 @@ h2 {
   display: flex;
   flex-direction: column;
   text-align: center;
-  width: 50%;
+  width: 60%;
   margin: 0 auto;
 }
 
@@ -133,7 +133,7 @@ h2 {
   margin: 1rem auto 1rem auto;
   align-items: center;
   text-align: center;
-  width: 40%;
+  width: 50%;
   border: 1px solid black;
   padding-top: 1rem;
   border-radius: 1.5rem;
@@ -159,8 +159,7 @@ h2 {
   padding: 0.5rem;
   border-radius: 1.5rem;
   justify-content: space-between;
-  min-height: 12rem;
-  width: 90%;
+  width: 80%;
   padding: 1rem;
 }
 
@@ -168,14 +167,47 @@ h2 {
   padding: 0.5rem;
 }
 
-@media screen and (max-width: 600px) {
+.add-comment-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+.add-comment-container-input {
+  width: 70%;
+  /* height: 5rem; */
+  padding: 0.2rem;
+}
+
+.add-comment-container-form-button {
+  width: 70%;
+  margin: auto;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+  margin-top: 0.5rem;
+}
+
+.add-comment-container-form-button-cancel {
+  margin-right: 0.5rem;
+  padding: 0.3rem;
+}
+
+.add-comment-container-form-button-comment {
+  font-weight: bolder;
+  padding: 0.3rem;
+}
+
+@media screen and (max-width: 800px) {
 
   body {
-    font-size: 10px;
+    font-size: 11px;
   }
 
   .articles-container {
-    width: 90%;
+    width: 95%;
   }
 
   .comments-container {
