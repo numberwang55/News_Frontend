@@ -13,7 +13,7 @@ export default function SingleArticle({ vote, setVote }) {
     const { article_id } = useParams()
     const { title, topic, author, article_img_url, body, created_at, comment_count, votes } = singleArticle
 
-    const date = dateFormatter(created_at)
+    const date = dateFormatter(created_at, author)
 
     useEffect(() => {
         getArticleById(article_id)
@@ -34,8 +34,7 @@ export default function SingleArticle({ vote, setVote }) {
                     <h2>{title}</h2>
                     <div className="articles-container-topic-author-votes">
                         <div className="articles-container-topic-author">
-                            <p>Topic: {topic}</p>
-                            <p>Author: {author}</p>
+                            <p>{topic[0].toUpperCase() + topic.slice(1,)}</p>
                         </div>
                         <Votes vote={vote} setVote={setVote} article_id={article_id} votes={votes}/>
                     </div>
