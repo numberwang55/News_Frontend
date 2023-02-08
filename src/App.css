@@ -87,6 +87,30 @@ nav {
   text-decoration: none;
 }
 
+.votes p {
+  text-align: center;
+}
+
+.votes-buttons {
+  display: flex;
+  flex-direction: row;
+  width: 4.5rem;
+  justify-content: space-between;
+  margin: auto;
+}
+
+.votes-buttons button {
+  width: 2rem;
+  height: 1.5rem;
+  background-color:rgb(3, 3, 2);
+  border-radius: 1rem;
+  border: 1px solid;
+}
+
+.votes-buttons button:hover {
+  background-color: red;
+}
+
 .comments-container {
   display: flex;
   flex-direction: column;

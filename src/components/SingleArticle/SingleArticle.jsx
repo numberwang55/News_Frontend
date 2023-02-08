@@ -4,6 +4,7 @@ import Votes from "../Articles/Votes"
 import { getArticleById } from "../../utils/api"
 import Loading from "../Loading"
 import Comments from "./Comments"
+import { dateFormatter } from "../../utils/dateFormatter"
 
 export default function SingleArticle({ vote, setVote }) {
 
@@ -11,6 +12,8 @@ export default function SingleArticle({ vote, setVote }) {
     const [loading, setLoading] = useState(true)
     const { article_id } = useParams()
     const { title, topic, author, article_img_url, body, created_at, comment_count, votes } = singleArticle
+
+    const date = dateFormatter(created_at)
 
     useEffect(() => {
         getArticleById(article_id)
@@ -42,7 +45,7 @@ export default function SingleArticle({ vote, setVote }) {
                         className="articles-container-card-image"
                     />
                     <p>{body}</p>
-                    <p>{created_at}</p>
+                    <p>{date}</p>
                     <p>Comments: {comment_count}</p>
                 </article>
             </section>

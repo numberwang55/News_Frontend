@@ -2,20 +2,30 @@ import { patchVote } from "../../utils/api"
 
 export default function Votes({ vote, setVote, article_id, votes }) {
 
-    const voteOnArticle = (vote) => {
-        setVote(votes)
-        patchVote(article_id, vote).catch((err) => {
-            console.log(err)
+    const [error, setError] = useState("")
+
+    const updateVoteNum = (num) => {
+        setVote((currVote) => {
+            return currVote + num;
         })
-        console.log(votes)
+        patchVote(article_id, num).catch((err) => {
+            setVote((currVote) => {
+                return currVote - num;
+            })
+            setError("Something went wrong!")
+        })
+    }
+
+    if (error !== "") {
+        return <p>{error}</p>
     }
 
     return (
         <div className="votes">
-            <p>Votes: {votes}</p>
+            <p>Votes: {votes + vote}</p>
             <div className="votes-buttons">
-                <button onClick={() => voteOnArticle(-1)}>Minus</button>
-                <button onClick={() => voteOnArticle(1)}>Plus</button>
+                <button onClick={() => updateVoteNum(-1)} value="-1">👎</button>
+                <button onClick={() => updateVoteNum(1)} value="1">👍</button>
             </div>
         </div>
     )
