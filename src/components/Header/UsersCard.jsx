@@ -1,16 +1,18 @@
 import { useContext } from "react"
 import { UserContext } from "../../contexts/UserContext"
+import { Link } from "react-router-dom"
 
 export default function UsersCard({ username, name, avatar_url }) {
 
     const {setUser} = useContext(UserContext)
 
     return (
-        <ul className="users-list">
-            <li>{username}</li>
-            <li>{name}</li>
-            <li><button onClick={() => setUser(username)}>Sign in</button></li>
+        <ul className="users-container-users_list">
+            <li><p className="username">Username: {username}</p></li>
+            <li><p className="name">Name: {name}</p></li>
             <img src={avatar_url} alt={username} />
+            <br />
+            <Link to="/"><button onClick={() => setUser(username)}>Select</button></Link>
         </ul>
     )
 }

@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import { getArticles } from "../../utils/api"
 import ArticleCard from "./ArticleCard"
 import Loading from "../Loading"
+import Nav from "./Nav"
 
 export default function Articles({ topic }) {
 
@@ -24,6 +25,7 @@ export default function Articles({ topic }) {
 
     return (
         <main className="articles-container">
+            <Nav />
             <section className="articles-container-sort-by">
                 <p>Sort by</p>
                 <button>Select</button>

@@ -4,14 +4,16 @@ import { UserContext } from "../../contexts/UserContext"
 
 export default function Header() {
 
-    const {user} = useContext(UserContext)
+    const { user } = useContext(UserContext)
     console.log(user)
 
     return (
         <header>
+            {user !== "" ? <p>User selected: {user}</p> : <p>Please select user</p>}
             <h1>NC News</h1>
-            <Link to="/users"><p>Users</p></Link>
-            <p>Logged in as: {user}</p>
+            {/* <div> */}
+                <Link to="/users"><p>Users</p></Link>
+            {/* </div> */}
         </header>
     )
 }

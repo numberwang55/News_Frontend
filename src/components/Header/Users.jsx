@@ -14,7 +14,7 @@ export default function Users() {
     })
 
     return (
-        <div className="users">
+        <div className="users-container">
             {usersFromApi.map(user => {
                 return <UsersCard {...user} key={user.username}/>
             })}
