@@ -12,7 +12,11 @@ export default function UsersCard({ username, name, avatar_url }) {
             <li><p className="name">Name: {name}</p></li>
             <img src={avatar_url} alt={username} />
             <br />
-            <Link to="/"><button onClick={() => setUser(username)}>Select</button></Link>
+            <Link to="/"><button onClick={() => setUser({
+                username: username,
+                name: name,
+                avatar_url: avatar_url
+            })}>Select</button></Link>
         </ul>
     )
 }

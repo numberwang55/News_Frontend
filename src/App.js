@@ -10,7 +10,11 @@ import { UserContext } from "./contexts/UserContext"
 function App() {
 
   const [topics, setTopics] = useState([])
-  const [user, setUser] = useState("")
+  const [user, setUser] = useState({
+    username: "Unknown",
+    name: "Unknown",
+    avatar_url: "https://icon-library.com/images/default-user-icon/default-user-icon-8.jpg"
+  })
 
   return (
     <div className="App">
