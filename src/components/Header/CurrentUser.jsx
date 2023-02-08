@@ -9,7 +9,6 @@ export default function CurrentUser() {
         <div className="current_user-container">
             <p>Current User:</p>
             <p>{user.username}</p>
-            {/* <p>Name: {user.name}</p> */}
             <img src={user.avatar_url} alt={user.username} />
         </div>
     )

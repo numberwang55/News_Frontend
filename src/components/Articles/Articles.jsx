@@ -24,15 +24,18 @@ export default function Articles({ topic }) {
     }
 
     return (
-        <main className="articles-container">
+        <div>
             <Nav />
-            <section className="articles-container-sort-by">
+            <section className="articles-sort-by">
                 <p>Sort by</p>
                 <button>Select</button>
             </section>
-            {articles.map(article => {
-                return <ArticleCard {...article} key={article.article_id} ></ArticleCard>
-            })}
-        </main>
+            <main className="articles-container">
+                {articles.map(article => {
+                    return <ArticleCard {...article} key={article.article_id} ></ArticleCard>
+                })}
+            </main>
+        </div>
     )
 }
+

@@ -29,11 +29,11 @@ export default function SingleArticle({ vote, setVote }) {
 
     return (
         <div className="single-article-container">
-            <section className="articles-container">
-                <article className="articles-container-card">
+            <section className="single-article-container">
+                <article className="single-article-container-card">
                     <h2>{title}</h2>
-                    <div className="articles-container-topic-author-votes">
-                        <div className="articles-container-topic-author">
+                    <div className="single-article-container-topic-author-votes">
+                        <div className="single-article-container-topic-author">
                             <p>{topic[0].toUpperCase() + topic.slice(1,)}</p>
                         </div>
                         <Votes vote={vote} setVote={setVote} article_id={article_id} votes={votes}/>
@@ -41,7 +41,7 @@ export default function SingleArticle({ vote, setVote }) {
                     <img
                         src={article_img_url}
                         alt={title}
-                        className="articles-container-card-image"
+                        className="single-article-container-card-image"
                     />
                     <p>{body}</p>
                     <p>{date}</p>
