@@ -1,17 +1,20 @@
 import { useParams } from "react-router"
 import { useEffect, useState } from "react"
-import Votes from "../Articles/Votes"
+import Votes from "./Votes"
 import { getArticleById } from "../../utils/api"
 import Loading from "../Loading"
 import Comments from "./Comments"
+import { dateFormatter } from "../../utils/dateFormatter"
 
-export default function SingleArticle({votes}) {
+export default function SingleArticle({ vote, setVote }) {
 
     const [singleArticle, setSingleArticle] = useState({})
     const [loading, setLoading] = useState(true)
     const { article_id } = useParams()
-    const {title, topic,author, article_img_url, body, created_at, comment_count} = singleArticle
-    
+    const { title, topic, author, article_img_url, body, created_at, comment_count, votes } = singleArticle
+
+    const date = dateFormatter(created_at, author)
+
     useEffect(() => {
         getArticleById(article_id)
             .then((articleFromApi) => {
@@ -31,10 +34,9 @@ export default function SingleArticle({votes}) {
                     <h2>{title}</h2>
                     <div className="articles-container-topic-author-votes">
                         <div className="articles-container-topic-author">
-                            <p>Topic: {topic}</p>
-                            <p>Author: {author}</p>
+                            <p>{topic[0].toUpperCase() + topic.slice(1,)}</p>
                         </div>
-                        <Votes votes={votes} />
+                        <Votes vote={vote} setVote={setVote} article_id={article_id} votes={votes}/>
                     </div>
                     <img
                         src={article_img_url}
@@ -42,11 +44,11 @@ export default function SingleArticle({votes}) {
                         className="articles-container-card-image"
                     />
                     <p>{body}</p>
-                    <p>{created_at}</p>
+                    <p>{date}</p>
                     <p>Comments: {comment_count}</p>
                 </article>
             </section>
-            <Comments article_id={article_id}/>
+            <Comments article_id={article_id} />
         </div>
     )
 }
