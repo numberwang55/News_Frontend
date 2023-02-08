@@ -20,8 +20,28 @@ header h1 {
   font-size: 2.5rem;
 }
 
+nav {
+  display: flex;
+  flex-direction: row;
+  width: 50%;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 h2 {
   text-align: center;
+}
+
+.articles-container {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  width: 50%;
+  margin: 0 auto;
 }
 
 .articles-container-card-title {
@@ -31,23 +51,6 @@ h2 {
 
 .articles-container-card-title:hover {
   background-color: gold;
-}
-
-nav {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-  align-items: center;
-  margin-top: 2rem;
-  margin-bottom: 1rem;
-}
-
-.articles-container {
-  display: flex;
-  flex-direction: column;
-  text-align: center;
-  width: 90%;
-  margin: 0 auto;
 }
 
 .articles-container-sort-by {
@@ -169,6 +172,10 @@ nav {
 
   body {
     font-size: 10px;
+  }
+
+  .articles-container {
+    width: 90%;
   }
 
   .comments-container {
