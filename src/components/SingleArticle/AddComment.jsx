@@ -61,7 +61,7 @@ export default function AddComment({ article_id, setComments }) {
 
     if (status !== "") {
         return (
-            <div className="add-comment-container-error">
+            <div className="add-comment-container-status">
                 <p>{status}</p>
                 <br />
                 {status === "Please select a user first!" ?
