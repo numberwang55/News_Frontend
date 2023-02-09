@@ -16,7 +16,7 @@ export default function UsersCard({ username, name, avatar_url }) {
                 username: username,
                 name: name,
                 avatar_url: avatar_url
-            })}><Link to="/"></Link>Users</button>
+            })}><Link to="/"></Link>Select</button>
         </ul>
     )
 }

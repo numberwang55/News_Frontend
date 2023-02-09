@@ -32,11 +32,9 @@ export default function SingleArticle({ vote, setVote }) {
             <section className="single-article-container">
                 <article className="single-article-container-card">
                     <h2>{title}</h2>
-                    <div className="single-article-container-topic-author-votes">
-                        <div className="single-article-container-topic-author">
-                            <p>{topic[0].toUpperCase() + topic.slice(1,)}</p>
-                        </div>
-                        <Votes vote={vote} setVote={setVote} article_id={article_id} votes={votes}/>
+                    <div className="single-article-container-topic-votes">
+                        <p>{topic[0].toUpperCase() + topic.slice(1,)}</p>
+                        <Votes vote={vote} setVote={setVote} article_id={article_id} votes={votes} />
                     </div>
                     <img
                         src={article_img_url}
