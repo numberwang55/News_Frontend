@@ -4,21 +4,22 @@ import ArticleCard from "./ArticleCard"
 import Loading from "../Loading"
 import { useParams } from "react-router-dom"
 
-export default function Articles({ topic }) {
+export default function Articles({ topics }) {
 
     const [articles, setArticles] = useState([])
     const [loading, setLoading] = useState(true)
     const [sortBy, setSortBy] = useState("created_at")
     const [order, orderBy] = useState("desc")
-    const { topicQuery } = useParams()
+    const { topic } = useParams()
+    console.log(topic)
 
     useEffect(() => {
-        getArticles(topicQuery)
+        getArticles(topic)
             .then((articles) => {
                 setArticles(articles)
                 setLoading(false)
             })
-    }, [topicQuery])
+    }, [topic])
 
     if (loading) {
         return <Loading />

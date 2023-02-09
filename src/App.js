@@ -8,15 +8,15 @@ import SingleArticle from './components/SingleArticle/SingleArticle';
 
 function App() {
 
-  const [topic, setTopic] = useState(false)
+  const [topics, setTopics] = useState(false)
 
   return (
     <div className="App">
       <Header />
       <Nav />
       <Routes>
-        <Route path='/' element={<Articles topic={topic} />}></Route>
-        <Route path='/:topic' element={<Articles topic={topic} />}></Route>
+        <Route path='/' element={<Articles topics={topics} />}></Route>
+        <Route path='/:topic' element={<Articles topics={topics} />}></Route>
         <Route path='/article/:article_id' element={<SingleArticle />}></Route>
       </Routes>
     </div>
