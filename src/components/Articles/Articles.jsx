@@ -27,8 +27,17 @@ export default function Articles({ topic }) {
         <div>
             <Nav />
             <section className="articles-sort-by">
-                <p>Sort by</p>
-                <button>Select</button>
+            <select name="sort-by" id="sort-by">
+                    <option value="created_at" default>Sort By</option>
+                    <option value="created_at" key="created_at">Date</option>
+                    <option value="article_id" key="article_id">Article ID</option>
+                    <option value="votes" key="votes">Votes</option>
+                </select>
+                <select name="order" id="order">
+                    <option value="desc">Order</option>
+                    <option value="desc">Descending</option>
+                    <option value="asc">Ascending</option>
+                </select>
             </section>
             <main className="articles-container">
                 {articles.map(article => {
