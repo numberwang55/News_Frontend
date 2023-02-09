@@ -11,7 +11,6 @@ export default function Articles({ topics }) {
     const [sortBy, setSortBy] = useState("created_at")
     const [order, orderBy] = useState("desc")
     const { topic } = useParams()
-    console.log(topic)
 
     useEffect(() => {
         getArticles(topic)
