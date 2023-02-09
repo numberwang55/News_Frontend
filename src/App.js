@@ -16,6 +16,7 @@ function App() {
       <Nav />
       <Routes>
         <Route path='/' element={<Articles topic={topic} />}></Route>
+        <Route path='/:topic' element={<Articles topic={topic} />}></Route>
         <Route path='/article/:article_id' element={<SingleArticle />}></Route>
       </Routes>
     </div>

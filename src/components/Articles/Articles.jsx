@@ -10,15 +10,15 @@ export default function Articles({ topic }) {
     const [loading, setLoading] = useState(true)
     const [sortBy, setSortBy] = useState("created_at")
     const [order, orderBy] = useState("desc")
-    const { topic } = useParams()
+    const { topicQuery } = useParams()
 
     useEffect(() => {
-        getArticles(topic)
+        getArticles(topicQuery)
             .then((articles) => {
                 setArticles(articles)
                 setLoading(false)
             })
-    }, [topic])
+    }, [topicQuery])
 
     if (loading) {
         return <Loading />
