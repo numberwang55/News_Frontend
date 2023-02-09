@@ -33,7 +33,7 @@ export default function Articles({ topic }) {
                     <option value="created_at" defaultValue={"created_at"}>Sort By</option>
                     <option value="comment_count" key="comment_count">Comment Count</option>
                     <option value="created_at" key="created_at">Date</option>
-                    <option value="article_id" key="article_id">article_id</option>
+                    <option value="votes" key="votes">votes</option>
                 </select>
                 <select name="order" id="order" onChange={(e) => setSearchParams({ sort_by: sortBy, order: e.target.value })}>
                     <option value="desc" defaultValue={"desc"}>Order</option>
