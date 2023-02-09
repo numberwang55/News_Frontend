@@ -19,7 +19,6 @@ export default function ArticleCard({ article_id, title, topic, author, article_
                 alt={title}
                 className="articles-container-card-image"
             />
-            {/* <p>{body}</p> */}
             <p className="articles-container-card-date">{date}</p>
             <p className="articles-container-card-comments">Comments: {comment_count}</p>
         </article>
