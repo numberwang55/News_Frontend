@@ -14,7 +14,7 @@ export const getArticles = (sort_by = "created_at", order = "desc", topic = fals
 export const getArticleById = (article_id) => {
     return newsApi.get(`/articles/${article_id}`)
         .then(({ data: { article } }) => {
-            return {...article}
+            return { ...article }
         })
 }
 
@@ -26,8 +26,26 @@ export const getComments = (article_id) => {
 }
 
 export const patchVote = (article_id, vote) => {
-    return newsApi.patch(`/articles/${article_id}`, {inc_votes: vote})
+    return newsApi.patch(`/articles/${article_id}`, { inc_votes: vote })
         .then((res) => {
             return res
+        })
+}
+
+export const getUsers = () => {
+    return newsApi.get("/users")
+        .then(({ data: { users } }) => {
+            return users
+        })
+}
+
+export const postComment = (article_id, user, comment) => {
+    const commentObj = {
+        username: user,
+        body: comment
+    }
+    return newsApi.post(`/articles/${article_id}/comments`, commentObj)
+        .then(({ data: { comment } }) => {
+            return comment
         })
 }
