@@ -8,6 +8,7 @@ export default function AddComment({ article_id, setComments }) {
     const [newComment, setNewComment] = useState("")
     const { user } = useContext(UserContext)
     const [error, setError] = useState(null)
+    const [postingComment, setPostingComment] = useState(false)
 
     const onChangeHandler = (e) => {
         setNewComment(() => {
@@ -16,9 +17,10 @@ export default function AddComment({ article_id, setComments }) {
     }
 
     const handleSubmit = (e) => {
+        setPostingComment(true)
         e.preventDefault()
         if (user.username !== "Unknown") {
-            postComment(article_id, user, newComment)
+            postComment(article_id, user.username, newComment)
                 .then((postedComment) => {
                     setComments((curentComments) => {
                         return [postedComment, ...curentComments,]
@@ -26,6 +28,8 @@ export default function AddComment({ article_id, setComments }) {
                         setError("Please refresh or try again later!")
                     })
                 })
+            setPostingComment(false)
+            setNewComment("")
         } else {
             setError("Please select a user first!")
         }
@@ -44,6 +48,10 @@ export default function AddComment({ article_id, setComments }) {
                 <Link to="/users">Users</Link>
             </div>
         )
+    }
+
+    if (postingComment) {
+        return <p>Posting comment to article...</p>
     }
 
     return (
