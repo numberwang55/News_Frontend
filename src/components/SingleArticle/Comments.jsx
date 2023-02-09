@@ -24,7 +24,7 @@ export default function Comments({ article_id }) {
     return (
         <section className="comments-container">
             <h3>Comments</h3>
-            <AddComment></AddComment>
+            <AddComment article_id={article_id} setComments={setComments}></AddComment>
             {comments.length === 0
                 ? <section>
                     <img src="https://media2.giphy.com/media/bElFigrnijrGxFtxuF/giphy.gif?cid=ecf05e47v5o4258x9ff3ewd9ejzfdzae21vy3vm1e7uuwtvs&rid=giphy.gif&ct=s" alt="No Comments" />

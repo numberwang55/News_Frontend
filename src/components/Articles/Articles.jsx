@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import { getArticles } from "../../utils/api"
 import ArticleCard from "./ArticleCard"
 import Loading from "../Loading"
+import Nav from "./Nav"
 import { useParams } from "react-router-dom"
 
 export default function Articles({ topics }) {
@@ -25,14 +26,18 @@ export default function Articles({ topics }) {
     }
 
     return (
-        <main className="articles-container">
-            <section className="articles-container-sort-by">
+        <div>
+            <Nav />
+            <section className="articles-sort-by">
                 <p>Sort by</p>
                 <button>Select</button>
             </section>
-            {articles.map(article => {
-                return <ArticleCard {...article} key={article.article_id} ></ArticleCard>
-            })}
-        </main>
+            <main className="articles-container">
+                {articles.map(article => {
+                    return <ArticleCard {...article} key={article.article_id} ></ArticleCard>
+                })}
+            </main>
+        </div>
     )
 }
+
