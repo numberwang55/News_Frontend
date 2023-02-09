@@ -5,10 +5,10 @@ import { postComment } from "../../utils/api"
 
 export default function AddComment({ article_id, setComments }) {
 
-    const [newComment, setNewComment] = useState("")
     const { user } = useContext(UserContext)
-    const [error, setError] = useState(null)
-    const [postingComment, setPostingComment] = useState(false)
+    const [newComment, setNewComment] = useState("")
+    const [status, setStatus] = useState("")
+    const [postingComment, setPostingComment] = useState("")
 
     const onChangeHandler = (e) => {
         setNewComment(() => {
@@ -17,21 +17,30 @@ export default function AddComment({ article_id, setComments }) {
     }
 
     const handleSubmit = (e) => {
-        setPostingComment(true)
+        setPostingComment("posting")
+        setStatus("Posting comment to article...")
         e.preventDefault()
         if (user.username !== "Unknown") {
             postComment(article_id, user.username, newComment)
                 .then((postedComment) => {
+                    setPostingComment("posted")
+                    setStatus("Your comment has been posted")
                     setComments((curentComments) => {
                         return [postedComment, ...curentComments,]
                     }).catch((err) => {
-                        setError("Please refresh or try again later!")
+                        setPostingComment("error")
+                        setStatus("Error - Please refresh or try again later!")
+                        setComments((currComments) => {
+                            const previousCommentsFromApi = [...currComments]
+                            previousCommentsFromApi.shift()
+                            return previousCommentsFromApi
+                        })
                     })
                 })
-            setPostingComment(false)
             setNewComment("")
         } else {
-            setError("Please select a user first!")
+            setPostingComment("unknown")
+            setStatus("Please select a user first!")
         }
     }
 
@@ -40,18 +49,27 @@ export default function AddComment({ article_id, setComments }) {
         setNewComment("")
     }
 
-    if (error) {
+    if (user.username === "Unknown") {
         return (
             <div className="add-comment-container-error">
-                <p>{error}</p>
+                <p>Please select a user first!</p>
                 <br />
                 <Link to="/users">Users</Link>
             </div>
         )
     }
 
-    if (postingComment) {
-        return <p>Posting comment to article...</p>
+    if (status !== "") {
+        return (
+            <div className="add-comment-container-error">
+                <p>{status}</p>
+                <br />
+                {status === "Please select a user first!" ?
+                    <Link to="/users">Users</Link>
+                    : ""
+                }
+            </div>
+        )
     }
 
     return (

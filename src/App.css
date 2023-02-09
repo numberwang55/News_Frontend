@@ -368,6 +368,10 @@ h2 {
     padding-bottom: 0.5rem;
   }
 
+  .loading img {
+    width: 50vw;
+  }
+
   .comments-container {
     width: 70vw;
   }

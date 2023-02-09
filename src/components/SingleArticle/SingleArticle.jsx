@@ -24,7 +24,7 @@ export default function SingleArticle({ vote, setVote }) {
     }, [article_id])
 
     if (loading) {
-        return <Loading />
+        return  <Loading />
     }
 
     return (
