@@ -4,7 +4,7 @@ import { Link } from "react-router-dom"
 
 export default function UsersCard({ username, name, avatar_url }) {
 
-    const {setUser} = useContext(UserContext)
+    const { setUser } = useContext(UserContext)
 
     return (
         <ul className="users-container-users_list">
@@ -12,11 +12,13 @@ export default function UsersCard({ username, name, avatar_url }) {
             <li><p className="name">Name: {name}</p></li>
             <img src={avatar_url} alt={username} />
             <br />
-            <button onClick={() => setUser({
-                username: username,
-                name: name,
-                avatar_url: avatar_url
-            })}><Link to="/"></Link>Select</button>
+            <Link to="/">
+                <button onClick={() => setUser({
+                    username: username,
+                    name: name,
+                    avatar_url: avatar_url
+                })}>Select</button>
+            </Link>
         </ul>
     )
 }

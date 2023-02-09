@@ -1,4 +1,5 @@
 import { useContext, useState } from "react"
+import { Link } from "react-router-dom"
 import { UserContext } from "../../contexts/UserContext"
 import { postComment } from "../../utils/api"
 
@@ -16,7 +17,7 @@ export default function AddComment({ article_id, setComments }) {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        if (user !== "") {
+        if (user.username !== "Unknown") {
             postComment(article_id, user, newComment)
                 .then((postedComment) => {
                     setComments((curentComments) => {
@@ -36,7 +37,13 @@ export default function AddComment({ article_id, setComments }) {
     }
 
     if (error) {
-        return <p>{error}</p>
+        return (
+            <div className="add-comment-container-error">
+                <p>{error}</p>
+                <br />
+                <Link to="/users">Users</Link>
+            </div>
+        )
     }
 
     return (
@@ -50,8 +57,6 @@ export default function AddComment({ article_id, setComments }) {
                     value={newComment}
                     placeholder="Add a comment..."
                     onChange={onChangeHandler}
-                    // rows="5"
-                    // cols="50"
                     required
                 />
                 <br />

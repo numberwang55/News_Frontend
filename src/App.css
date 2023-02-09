@@ -172,7 +172,6 @@ h2 {
 .single-article-container-card-image {
   width: 70%;
   margin: 0.5rem 0;
-  /* margin-bottom: 0.3rem; */
 }
 
 .single-article-container-card p {
@@ -305,6 +304,15 @@ h2 {
   padding: 0.3rem;
 }
 
+.add-comment-container-error {
+  font-size: 1rem;
+}
+
+.add-comment-container-error a {
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+}
+
 .users-container {
   display: grid;
   width: 80%;
@@ -325,7 +333,6 @@ h2 {
 
 .users-container p {
   margin: 0.1rem;
-  /* font-size: 0.9rem; */
 }
 
 .users-container button {
@@ -341,7 +348,7 @@ h2 {
   }
 
   body {
-    /* font-size: 11px; */
+    font-size: 11px;
   }
 
   .articles-container {
