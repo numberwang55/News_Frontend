@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import { getArticles } from "../../utils/api"
 import ArticleCard from "./ArticleCard"
 import Loading from "../Loading"
+import { useParams } from "react-router-dom"
 
 export default function Articles({ topic }) {
 
@@ -9,9 +10,10 @@ export default function Articles({ topic }) {
     const [loading, setLoading] = useState(true)
     const [sortBy, setSortBy] = useState("created_at")
     const [order, orderBy] = useState("desc")
+    const { topic } = useParams()
 
     useEffect(() => {
-        getArticles()
+        getArticles(topic)
             .then((articles) => {
                 setArticles(articles)
                 setLoading(false)

@@ -5,7 +5,11 @@ const newsApi = axios.create({
 })
 
 export const getArticles = (sort_by = "created_at", order = "desc", topic = false, author = "") => {
-    return newsApi.get("/articles")
+    return newsApi.get("/articles", {
+        params: {
+            topic: topic
+        }
+    })
         .then(({ data: { articles } }) => {
             return articles
         })
@@ -29,5 +33,12 @@ export const patchVote = (article_id, vote) => {
     return newsApi.patch(`/articles/${article_id}`, {inc_votes: vote})
         .then((res) => {
             return res
+        })
+}
+
+export const getTopics = () => {
+    return newsApi.get("/topics")
+        .then(({data: {topics}}) => {
+            return topics
         })
 }
