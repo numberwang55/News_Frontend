@@ -15,10 +15,11 @@ export default function Nav() {
 
     return (
         <nav>
-            <Link to="/" key="all-articles">All</Link>
+            <Link to="/" key="all-articles"><h2>All</h2></Link>
             {retrievedTopics.map(topic => {
+                const capitalisedTopic = topic.slug[0].toUpperCase() + topic.slug.slice(1,)
                 return (
-                    <Link to={`/${topic.slug}`} key={topic.slug}>{topic.slug}</Link>
+                    <Link to={`/${topic.slug}`} key={topic.slug}><h2>{capitalisedTopic}</h2></Link>
                 )
             })}
         </nav>
