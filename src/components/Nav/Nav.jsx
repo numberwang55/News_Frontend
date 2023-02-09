@@ -18,9 +18,7 @@ export default function Nav() {
             <Link to="/" key="all-articles">All</Link>
             {retrievedTopics.map(topic => {
                 return (
-                    <div>
-                        <Link to={`/${topic.slug}`} key={topic.slug}>{topic.slug}</Link>
-                    </div>
+                    <Link to={`/${topic.slug}`} key={topic.slug}>{topic.slug}</Link>
                 )
             })}
         </nav>
