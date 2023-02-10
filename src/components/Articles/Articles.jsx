@@ -31,7 +31,7 @@ export default function Articles({articles, setArticles }) {
 
     if (error) {
         return (
-            <section>
+            <section className="error">
                 <Link to="/articles"><h2>Articles</h2></Link>
                 <br />
                 <h2>404 - Topic doesn't exist</h2>
