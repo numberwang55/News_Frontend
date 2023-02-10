@@ -1,4 +1,3 @@
-import Votes from "../SingleArticle/Votes"
 import { Link } from "react-router-dom"
 import { dateFormatter } from "../../utils/dateFormatter"
 

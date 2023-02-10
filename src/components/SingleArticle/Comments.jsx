@@ -8,6 +8,7 @@ export default function Comments({ article_id }) {
 
     const [comments, setComments] = useState([])
     const [loading, setLoading] = useState(true)
+    const [deletedCommentId, setDeletedCommentId] = useState(-1)
 
     useEffect(() => {
         getComments(article_id)
@@ -15,7 +16,7 @@ export default function Comments({ article_id }) {
                 setComments(comments)
                 setLoading(false)
             })
-    }, [article_id])
+    }, [article_id, deletedCommentId])
 
     if (loading) {
         return <Loading />
@@ -31,7 +32,7 @@ export default function Comments({ article_id }) {
                     <p>No comments for this article. Be the first to comment above!</p>
                 </section>
                 : comments.map(comment => {
-                    return <CommentCard {...comment} key={comment.comment_id} ></CommentCard>
+                    return <CommentCard {...comment} key={comment.comment_id} deletedCommentId={deletedCommentId} setDeletedCommentId={setDeletedCommentId} ></CommentCard>
                 })}
         </section>
     )

@@ -23,6 +23,7 @@ function App() {
         <Routes>
           <Route path='/' element={<Articles topic={topics} />}></Route>
           <Route path='/users' element={<Users />}></Route>
+          <Route path='/:topic' element={<Articles topics={topics} />}></Route>
           <Route path='/article/:article_id' element={<SingleArticle />}></Route>
         </Routes>
       </UserContext.Provider>

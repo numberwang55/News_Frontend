@@ -4,8 +4,14 @@ const newsApi = axios.create({
     baseURL: "https://news-backend-njz3.onrender.com/api"
 })
 
-export const getArticles = (sort_by = "created_at", order = "desc", topic = false, author = "") => {
-    return newsApi.get("/articles")
+export const getArticles = (topic, sortBy, orderBy) => {
+    return newsApi.get("/articles", {
+        params: {
+            topic: topic,
+            sort_by: sortBy,
+            order: orderBy
+        }
+    })
         .then(({ data: { articles } }) => {
             return articles
         })
@@ -48,4 +54,15 @@ export const postComment = (article_id, user, comment) => {
         .then(({ data: { comment } }) => {
             return comment
         })
+}
+
+export const getTopics = () => {
+    return newsApi.get("/topics")
+        .then(({ data: { topics } }) => {
+            return topics
+        })
+}
+
+export const deleteComment = (comment_id) => {
+    return newsApi.delete(`/comments/${comment_id}`)
 }
