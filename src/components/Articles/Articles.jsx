@@ -11,9 +11,10 @@ export default function Articles({ topics }) {
     const [articles, setArticles] = useState([])
     const [loading, setLoading] = useState(true)
     const { topic } = useParams()
-    const [searchParams, setSearchParams] = useSearchParams({sort : "created_at", order: "desc"})
+    const [searchParams, setSearchParams] = useSearchParams({ sort: "created_at", order: "desc" })
     const sortBy = searchParams.get("sort_by")
     const order = searchParams.get("order")
+    const [error, setError] = useState(null)
 
     useEffect(() => {
         getArticles(topic, sortBy, order)
@@ -21,7 +22,19 @@ export default function Articles({ topics }) {
                 setArticles(articles)
                 setLoading(false)
             })
+            .catch((err) => {
+                setError(err)
+                setLoading(false)
+            })
     }, [topic, sortBy, order])
+
+    if (error) {
+        return (
+            <section>
+                <h2>404 - Url not found</h2>
+            </section>
+        )
+    }
 
     if (loading) {
         return <Loading />
@@ -31,7 +44,7 @@ export default function Articles({ topics }) {
         <div>
             <Nav />
             <section className="articles-sort-by">
-                <select name="sort-by" id="sort-by" onChange={(e) => setSearchParams({ sort_by: e.target.value, order: order})}>
+                <select name="sort-by" id="sort-by" onChange={(e) => setSearchParams({ sort_by: e.target.value, order: order })}>
                     <option value="created_at" defaultValue={"created_at"}>Sort By</option>
                     <option value="comment_count" key="comment_count">Comment Count</option>
                     <option value="created_at" key="created_at">Date</option>
@@ -42,7 +55,7 @@ export default function Articles({ topics }) {
                     <option value="desc">Descending</option>
                     <option value="asc">Ascending</option>
                 </select>
-                <button onClick={() => setSearchParams({ })}>Reset</button>
+                <button onClick={() => setSearchParams({})}>Reset</button>
             </section>
             <main className="articles-container">
                 {articles.map(article => {

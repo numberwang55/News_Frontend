@@ -25,6 +25,7 @@ function App() {
           <Route path='/users' element={<Users />}></Route>
           <Route path='/:topic' element={<Articles topics={topics} />}></Route>
           <Route path='/article/:article_id' element={<SingleArticle />}></Route>
+          <Route path="*" element={<p>404 - Url not found</p>}></Route>
         </Routes>
       </UserContext.Provider>
     </div>

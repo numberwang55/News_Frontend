@@ -5,13 +5,27 @@ import { Link } from "react-router-dom"
 export default function Nav() {
 
     const [retrievedTopics, setRetrievedTopics] = useState([])
+    const [error, setError] = useState(null)
 
     useEffect(() => {
         getTopics()
             .then((topicsFromApi) => {
                 setRetrievedTopics(topicsFromApi)
             })
+            .catch((err) => {
+                setError(err)
+            })
     }, [])
+
+    if (error) {
+        return (
+            <section>
+                <Link to="/"><h2>Home</h2></Link>
+                <br />
+                <h2>404 - Topic not found</h2>
+            </section>
+        )
+    }
 
     return (
         <nav>
