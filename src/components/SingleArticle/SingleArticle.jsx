@@ -5,6 +5,7 @@ import { getArticleById } from "../../utils/api"
 import Loading from "../Loading"
 import Comments from "./Comments"
 import { dateFormatter } from "../../utils/dateFormatter"
+import { Link } from "react-router-dom"
 
 export default function SingleArticle({ vote, setVote }) {
 
@@ -29,13 +30,15 @@ export default function SingleArticle({ vote, setVote }) {
     }, [article_id])
 
     if (loading) {
-        return  <Loading />
+        return <Loading />
     }
 
     if (error) {
         return (
             <section>
-                <p>404 - Article not found</p>
+                <Link to="/"><h2>Home</h2></Link>
+                <br />
+                <h2>404 - Article not found</h2>
             </section>
         )
     }
