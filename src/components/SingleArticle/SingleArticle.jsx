@@ -12,6 +12,7 @@ export default function SingleArticle({ vote, setVote }) {
     const [loading, setLoading] = useState(true)
     const { article_id } = useParams()
     const { title, topic, author, article_img_url, body, created_at, comment_count, votes } = singleArticle
+    const [error, setError] = useState(null)
 
     const date = dateFormatter(created_at, author)
 
@@ -21,10 +22,22 @@ export default function SingleArticle({ vote, setVote }) {
                 setSingleArticle(articleFromApi)
                 setLoading(false)
             })
+            .catch((err) => {
+                setError(err)
+                setLoading(false)
+            })
     }, [article_id])
 
     if (loading) {
         return  <Loading />
+    }
+
+    if (error) {
+        return (
+            <section>
+                <p>404 - Article not found</p>
+            </section>
+        )
     }
 
     return (
