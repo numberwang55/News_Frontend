@@ -3,18 +3,20 @@ import { getArticles } from "../../utils/api"
 import ArticleCard from "./ArticleCard"
 import Loading from "../Loading"
 import Nav from "./Nav"
+import { useParams } from "react-router-dom"
 import { useSearchParams } from "react-router-dom"
 
-export default function Articles({ topic }) {
+export default function Articles({ topics }) {
 
     const [articles, setArticles] = useState([])
     const [loading, setLoading] = useState(true)
+    const { topic } = useParams()
     const [searchParams, setSearchParams] = useSearchParams({sort : "created_at", order: "desc"})
     const sortBy = searchParams.get("sort_by")
     const order = searchParams.get("order")
 
     useEffect(() => {
-        getArticles(sortBy, order)
+        getArticles(topic, sortBy, order)
             .then((articles) => {
                 setArticles(articles)
                 setLoading(false)

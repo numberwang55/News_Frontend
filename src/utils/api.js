@@ -6,10 +6,10 @@ const newsApi = axios.create({
 
 //removed topic from params
 // topic, sortBy="created_at", orderBy = "asc"
-export const getArticles = (sortBy, orderBy) => {
+export const getArticles = (topic, sortBy, orderBy) => {
     return newsApi.get("/articles", {
         params: {
-            // topic: topic,
+            topic: topic,
             sort_by: sortBy,
             order: orderBy
         }
@@ -55,5 +55,12 @@ export const postComment = (article_id, user, comment) => {
     return newsApi.post(`/articles/${article_id}/comments`, commentObj)
         .then(({ data: { comment } }) => {
             return comment
+        })
+}
+
+export const getTopics = () => {
+    return newsApi.get("/topics")
+        .then(({ data: { topics } }) => {
+            return topics
         })
 }

@@ -46,7 +46,9 @@ export default function AddComment({ article_id, setComments }) {
 
     const handleCancel = (e) => {
         e.preventDefault()
-        setNewComment("")
+        if(newComment !== "") {
+            setNewComment("")
+        }
     }
 
     if (user.username === "Unknown") {
