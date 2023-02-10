@@ -12,7 +12,10 @@ export default function CommentCard({ author, body, comment_id, created_at, vote
     if (error !== "") {
         return (
             <div className="comments-container-card">
-                <p>{error}</p>
+                <p>{body}</p>
+                <p>{date}</p>
+                <p>Votes: {votes}</p>
+                <p className="comments-container-card-error">{error}</p>
             </div>
         )
     }
@@ -31,7 +34,7 @@ export default function CommentCard({ author, body, comment_id, created_at, vote
             <p>{date}</p>
             <p>Votes: {votes}</p>
             {user.username === author
-                ? <DeleteCommentButton comment_id={comment_id} setDeletedCommentId={setDeletedCommentId} setError={setError} error={error} />
+                ? <DeleteCommentButton comment_id={comment_id} setDeletedCommentId={setDeletedCommentId} setError={setError} error={error}/>
                 : ""}
         </div>
     )

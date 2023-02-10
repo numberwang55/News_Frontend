@@ -1,4 +1,3 @@
-import { useState } from "react"
 import { deleteComment } from "../../utils/api"
 
 export default function DeleteCommentButton({ comment_id, setDeletedCommentId, error, setError }) {

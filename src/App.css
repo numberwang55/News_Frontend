@@ -283,6 +283,10 @@ h2 {
   padding: 0.5rem;
 }
 
+.comments-container-card-error {
+  font-weight: bold;
+}
+
 .add-comment-container {
   width: 100%;
   display: flex;
