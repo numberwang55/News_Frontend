@@ -16,7 +16,7 @@ export default function Comments({ article_id }) {
                 setComments(comments)
                 setLoading(false)
             })
-    }, [article_id])
+    }, [article_id, deletedCommentId])
 
     if (loading) {
         return <Loading />
