@@ -75,6 +75,14 @@ h2 {
   justify-content: center;
 }
 
+#sort-by {
+  margin-right: 1rem;
+}
+
+#order {
+  margin-right: 1rem;
+}
+
 .articles-container {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
