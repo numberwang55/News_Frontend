@@ -13,7 +13,7 @@ function App() {
   const [user, setUser] = useState({
     username: "Unknown",
     name: "Unknown",
-    avatar_url: "https://icon-library.com/images/default-user-icon/default-user-icon-8.jpg"
+    avatar_url: ""
   })
 
   return (
@@ -25,7 +25,7 @@ function App() {
           <Route path='/users' element={<Users />}></Route>
           <Route path='/:topic' element={<Articles topics={topics} />}></Route>
           <Route path='/article/:article_id' element={<SingleArticle />}></Route>
-          <Route path="*" element={<p>404 - Url not found</p>}></Route>
+          <Route path="/*" element={<p>404 - Path not found</p>}></Route>
         </Routes>
       </UserContext.Provider>
     </div>
