@@ -11,7 +11,6 @@
 body {
   background-color: floralwhite;
   margin-top: 1rem;
-  font-size: 13px;
 }
 
 header {
@@ -52,12 +51,17 @@ header a {
 nav {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   width: 50%;
-  justify-content: space-around;
+  justify-content: space-evenly;
   align-items: center;
   margin-bottom: 1rem;
   margin-left: auto;
   margin-right: auto;
+}
+
+nav a {
+  margin: 0.3rem;
 }
 
 h2 {
@@ -69,6 +73,14 @@ h2 {
   flex-direction: row;
   align-items: center;
   justify-content: center;
+}
+
+#sort-by {
+  margin-right: 1rem;
+}
+
+#order {
+  margin-right: 1rem;
 }
 
 .articles-container {
@@ -348,7 +360,12 @@ h2 {
   }
 
   body {
-    font-size: 11px;
+    font-size: 14px;
+  }
+  
+  nav {
+    width: 80%;
+    font-size: smaller;
   }
 
   .articles-container {

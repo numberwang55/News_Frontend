@@ -4,7 +4,7 @@ import { deleteComment } from "../../utils/api"
 export default function DeleteCommentButton({ comment_id, setDeletedCommentId, error, setError }) {
 
     const handleDeleteClick = () => {
-        deleteComment()
+        deleteComment(comment_id)
             .catch((err) => {
                 setError("Something went wrong. Please refresh or try again later.")
             })
