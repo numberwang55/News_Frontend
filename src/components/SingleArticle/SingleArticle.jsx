@@ -45,6 +45,7 @@ export default function SingleArticle({ vote, setVote }) {
 
     return (
         <div className="single-article-container">
+            <Link to="/"><h2>Home</h2></Link>
             <section className="single-article-container">
                 <article className="single-article-container-card">
                     <h2>{title}</h2>

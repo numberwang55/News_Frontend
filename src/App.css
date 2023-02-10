@@ -19,7 +19,7 @@ header {
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
 }
 
 header h1 {
@@ -333,7 +333,7 @@ h2 {
   display: grid;
   width: 80%;
   grid-template-columns: 1fr 1fr 1fr;
-  margin: 0 auto;
+  margin: 1rem auto;
   text-align: center;
 }
 
