@@ -20,7 +20,7 @@ export default function Home({ articles, setArticles }) {
             <Link to="/articles"><h2>Articles</h2></Link>
             <br />
             <h2>Most recent Article</h2>
-            <div className="single-article-container">
+            <div className="home-article-container">
                 <ArticleCard {...articles} isArticleForHomePage={isArticleForHomePage}/>
             </div>
         </section>

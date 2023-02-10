@@ -218,6 +218,16 @@ articles-container-card p {
 
 
 
+.home-article-container{
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  width: 70%;
+  margin: 0 auto;
+}
+
+
+
 .votes p {
   text-align: center;
 }
