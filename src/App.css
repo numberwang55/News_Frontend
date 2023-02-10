@@ -101,6 +101,10 @@ h2 {
   border-radius: 1.5rem;
 }
 
+.articles-container-card-body {
+  padding: 1rem;
+}
+
 .articles-container-card-title {
   text-align: center;
   margin-left: 0.3rem;

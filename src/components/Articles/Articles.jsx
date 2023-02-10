@@ -5,10 +5,10 @@ import Loading from "../Loading"
 import Nav from "./Nav"
 import { useParams } from "react-router-dom"
 import { useSearchParams } from "react-router-dom"
+import { Link } from "react-router-dom"
 
-export default function Articles({ topics }) {
+export default function Articles({articles, setArticles }) {
 
-    const [articles, setArticles] = useState([])
     const [loading, setLoading] = useState(true)
     const { topic } = useParams()
     const [searchParams, setSearchParams] = useSearchParams({ sort: "created_at", order: "desc" })
@@ -24,14 +24,17 @@ export default function Articles({ topics }) {
             })
             .catch((err) => {
                 setError(err)
+                console.log(err)
                 setLoading(false)
             })
-    }, [topic, sortBy, order])
+    }, [topic, sortBy, order, loading, setArticles])
 
     if (error) {
         return (
             <section>
-                <h2>404 - Url not found</h2>
+                <Link to="/articles"><h2>Articles</h2></Link>
+                <br />
+                <h2>404 - Topic doesn't exist</h2>
             </section>
         )
     }

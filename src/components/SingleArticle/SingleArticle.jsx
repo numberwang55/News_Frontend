@@ -36,7 +36,7 @@ export default function SingleArticle({ vote, setVote }) {
     if (error) {
         return (
             <section>
-                <Link to="/"><h2>Home</h2></Link>
+                <Link to="/articles"><h2>Articles</h2></Link>
                 <br />
                 <h2>404 - Article not found</h2>
             </section>

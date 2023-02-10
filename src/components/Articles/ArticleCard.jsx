@@ -1,10 +1,13 @@
 import { Link } from "react-router-dom"
 import { dateFormatter } from "../../utils/dateFormatter"
 
-export default function ArticleCard({ article_id, title, topic, author, article_img_url, body, created_at, comment_count, votes }) {
+export default function ArticleCard({ article_id, title, topic, author, article_img_url, body, created_at, comment_count, votes, isArticleForHomePage }) {
 
     const date = dateFormatter(created_at, author)
-    const capitalisedTopic = topic[0].toUpperCase() + topic.slice(1,)
+    let capitalisedTopic
+    if (topic !== undefined) {
+        capitalisedTopic = topic[0].toUpperCase() + topic.slice(1,)
+    }
 
     return (
         <article className="articles-container-card">
@@ -18,6 +21,7 @@ export default function ArticleCard({ article_id, title, topic, author, article_
                 alt={title}
                 className="articles-container-card-image"
             />
+            <p className="articles-container-card-body">{isArticleForHomePage ? body : ""}</p>
             <p className="articles-container-card-date">{date}</p>
             <p className="articles-container-card-comments">Comments: {comment_count}</p>
         </article>
