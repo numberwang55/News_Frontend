@@ -4,8 +4,6 @@ const newsApi = axios.create({
     baseURL: "https://news-backend-njz3.onrender.com/api"
 })
 
-//removed topic from params
-// topic, sortBy="created_at", orderBy = "asc"
 export const getArticles = (topic, sortBy, orderBy) => {
     return newsApi.get("/articles", {
         params: {
