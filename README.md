@@ -6,6 +6,8 @@ Northcoders News has articles which are divided into topics. Each article has us
 
 ## URL
 
+Deployed website is available at - https://nc-news-project-frontend.netlify.app/
+
 ## Backend
 
 The NC News API can be accessed on Render at -  https://news-backend-njz3.onrender.com/api
