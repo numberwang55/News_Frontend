@@ -28,7 +28,7 @@ function App() {
           <Route path='/users' element={<Users />}></Route>
           <Route path='/articles/:topic' element={<Articles articles={articles} setArticles={setArticles} />}></Route>
           <Route path='/article/:article_id' element={<SingleArticle />}></Route>
-          <Route path="/*" element={<NoUrlError />}></Route>
+          <Route path="*" element={<NoUrlError />}></Route>
         </Routes>
       </UserContext.Provider>
     </div>
