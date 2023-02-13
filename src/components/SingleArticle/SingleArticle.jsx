@@ -5,6 +5,7 @@ import { getArticleById } from "../../utils/api"
 import Loading from "../Loading"
 import Comments from "./Comments"
 import { dateFormatter } from "../../utils/dateFormatter"
+import { Link } from "react-router-dom"
 
 export default function SingleArticle({ vote, setVote }) {
 
@@ -12,6 +13,7 @@ export default function SingleArticle({ vote, setVote }) {
     const [loading, setLoading] = useState(true)
     const { article_id } = useParams()
     const { title, topic, author, article_img_url, body, created_at, comment_count, votes } = singleArticle
+    const [error, setError] = useState(null)
 
     const date = dateFormatter(created_at, author)
 
@@ -21,14 +23,29 @@ export default function SingleArticle({ vote, setVote }) {
                 setSingleArticle(articleFromApi)
                 setLoading(false)
             })
+            .catch((err) => {
+                setError(err)
+                setLoading(false)
+            })
     }, [article_id])
 
     if (loading) {
-        return  <Loading />
+        return <Loading />
+    }
+
+    if (error) {
+        return (
+            <section className="error">
+                <Link to="/articles"><h2>Articles</h2></Link>
+                <br />
+                <h2>404 - Article not found</h2>
+            </section>
+        )
     }
 
     return (
         <div className="single-article-container">
+            <Link to="/"><h2>Home</h2></Link>
             <section className="single-article-container">
                 <article className="single-article-container-card">
                     <h2>{title}</h2>

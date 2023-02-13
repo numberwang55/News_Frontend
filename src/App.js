@@ -6,14 +6,16 @@ import { useState } from 'react';
 import SingleArticle from './components/SingleArticle/SingleArticle';
 import Users from './components/Header/Users';
 import { UserContext } from "./contexts/UserContext"
+import Home from './components/Articles/Home';
+import NoUrlError from './components/Errors/NoUrlError';
 
 function App() {
 
-  const [topics, setTopics] = useState([])
+  const [articles, setArticles] = useState([])
   const [user, setUser] = useState({
     username: "Unknown",
     name: "Unknown",
-    avatar_url: "https://icon-library.com/images/default-user-icon/default-user-icon-8.jpg"
+    avatar_url: ""
   })
 
   return (
@@ -21,10 +23,12 @@ function App() {
       <UserContext.Provider value={{ user, setUser }}>
         <Header />
         <Routes>
-          <Route path='/' element={<Articles topic={topics} />}></Route>
+          <Route path='/' element={<Home articles={articles} setArticles={setArticles} />}></Route>
+          <Route path='/articles' element={<Articles articles={articles} setArticles={setArticles} />}></Route>
           <Route path='/users' element={<Users />}></Route>
-          <Route path='/:topic' element={<Articles topics={topics} />}></Route>
+          <Route path='/articles/:topic' element={<Articles articles={articles} setArticles={setArticles} />}></Route>
           <Route path='/article/:article_id' element={<SingleArticle />}></Route>
+          <Route path="*" element={<NoUrlError />}></Route>
         </Routes>
       </UserContext.Provider>
     </div>

@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import { getUsers } from "../../utils/api"
 import UsersCard from "./UsersCard"
+import { Link } from "react-router-dom"
 
 export default function Users() {
 
@@ -14,10 +15,13 @@ export default function Users() {
     })
 
     return (
-        <div className="users-container">
-            {usersFromApi.map(user => {
-                return <UsersCard {...user} key={user.username}/>
-            })}
+        <div>
+            <Link to="/"><h2>Home</h2></Link>
+            <div className="users-container">
+                {usersFromApi.map(user => {
+                    return <UsersCard {...user} key={user.username} />
+                })}
+            </div>
         </div>
     )
 }

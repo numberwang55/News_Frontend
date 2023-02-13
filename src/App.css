@@ -19,7 +19,7 @@ header {
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
 }
 
 header h1 {
@@ -33,6 +33,14 @@ header a {
   margin-right: 2rem;
   text-align: end;
   font-size: 1rem;
+}
+
+nav a {
+  margin: 0.3rem;
+}
+
+h2 {
+  text-align: center;
 }
 
 .current_user-container {
@@ -58,14 +66,6 @@ nav {
   margin-bottom: 1rem;
   margin-left: auto;
   margin-right: auto;
-}
-
-nav a {
-  margin: 0.3rem;
-}
-
-h2 {
-  text-align: center;
 }
 
 .articles-sort-by {
@@ -99,6 +99,18 @@ h2 {
   text-align: left;
   border: 1px solid rgb(196, 70, 70);
   border-radius: 1.5rem;
+}
+
+.articles-container-card-body {
+  padding-top: 1rem;
+  padding-right: 2rem;
+  padding-left: 2rem;
+}
+
+articles-container-card p {
+  padding: 0.3rem;
+  font-size: 1rem;
+  align-items: center;
 }
 
 .articles-container-card-title {
@@ -202,6 +214,16 @@ h2 {
 
 .single-article-container-card-link {
   text-decoration: none;
+}
+
+
+
+.home-article-container{
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  width: 70%;
+  margin: 0 auto;
 }
 
 
@@ -333,7 +355,7 @@ h2 {
   display: grid;
   width: 80%;
   grid-template-columns: 1fr 1fr 1fr;
-  margin: 0 auto;
+  margin: 1rem auto;
   text-align: center;
 }
 
