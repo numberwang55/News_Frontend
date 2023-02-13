@@ -4,6 +4,14 @@ Northcoders News is a social news aggregation, web content rating, and discussio
 
 Northcoders News has articles which are divided into topics. Each article has user curated ratings and can be up or down voted using the API. Users can also add comments about an article. Comments can also be up or down voted. A user can add comments and remove any comments which they have added.
 
+## URL
+
+## Backend
+
+The NC News API can be accessed on Render at -  https://news-backend-njz3.onrender.com/api
+
+The repo is available at - https://github.com/numberwang55/News_Backend
+
 ## Getting started
 
 Follow these steps to run this project on your local machine for development and testing purposes.
