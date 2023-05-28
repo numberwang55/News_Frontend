@@ -37,5 +37,3 @@ Once you have node and have cloned the project, you can run this project. Don't 
 Simple! 
 
  - Open your favorite browser and go to: http://localhost:3000
- - If you want to see the deployed version, check this out:
-   https://ro-nc-app.herokuapp.com
